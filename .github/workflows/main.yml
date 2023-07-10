@@ -1,7 +1,7 @@
 name: Deploy DynamoDB CRUD API
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   deploy:
@@ -13,7 +13,7 @@ jobs:
     - uses: actions/cache@v2
       with:
         path: '**/node_modules'
-        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/npm.lock') }}
 
     - name: Use Node.js 14.x
       uses: actions/setup-node@v1
@@ -21,7 +21,7 @@ jobs:
         node-version: 14.x
 
     - name: Install dependencies
-      run: yarn install
+      run: npm install
 
     - name: serverless deploy
       uses: serverless/github-action@master
