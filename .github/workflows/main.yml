@@ -26,8 +26,6 @@ jobs:
     - name: stack/aws-stack deploy
       uses: serverless/github-action@master
       with:
-        name: demoStack
-        template: my-stack/serverless.yml
         args: deploy 
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
