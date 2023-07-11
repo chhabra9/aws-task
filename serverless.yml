@@ -28,7 +28,7 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:GetItem
-        Resource: "arn:aws:dynamodb:{region}:{account}:table/${self:custom.userTableName}"
+        Resource: !GetAtt UsersTable
         
   createUser:
     handler: api.putUser
@@ -43,7 +43,7 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:PutItem
-        Resource: "arn:aws:dynamodb:{region}:{account}:table/${self:custom.userTableName}"
+        Resource: !GetAtt UsersTable
       
   updateUser:
     handler: api.putUser
@@ -58,7 +58,7 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:UpdateItem
-        Resource: "arn:aws:dynamodb:{region}:{account}:table/${self:custom.userTableName}"
+        Resource: !GetAtt UsersTable
       
   deleteUser:
     handler: api.deleteUser
@@ -73,7 +73,7 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:DeleteItem
-        Resource: "arn:aws:dynamodb:{region}:{account}:table/${self:custom.userTableName}"
+        Resource: !GetAtt UsersTable
 
 resources:
   Resources:
