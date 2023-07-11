@@ -28,7 +28,7 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:GetItem
-        Resource: !GetAtt UsersTable
+        Resource: !GetAtt UsersTable.Arn
         
   createUser:
     handler: api.putUser
@@ -43,7 +43,7 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:PutItem
-        Resource: !GetAtt UsersTable
+        Resource: !GetAtt UsersTable.Arn
       
   updateUser:
     handler: api.putUser
@@ -58,7 +58,7 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:UpdateItem
-        Resource: !GetAtt UsersTable
+        Resource: !GetAtt UsersTable.Arn
       
   deleteUser:
     handler: api.deleteUser
@@ -73,7 +73,7 @@ functions:
       - Effect: Allow
         Action: 
           - dynamodb:DeleteItem
-        Resource: !GetAtt UsersTable
+        Resource: !GetAtt UsersTable.Arn
 
 resources:
   Resources:
