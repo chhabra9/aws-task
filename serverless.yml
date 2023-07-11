@@ -75,46 +75,18 @@ functions:
           - dynamodb:DeleteItem
         Resource: "arn:aws:dynamodb:{region}:{account}:table/${self:custom.userTableName}"
 
-resources: 
+resources:
   Resources:
-    UserTable:
+    UsersTable:
       Type: AWS::DynamoDB::Table
-      Properties: 
-        TableName: ${self:custom.userTableName}
+      Properties:
+        TableName: users
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: N
-          - AttributeName: name
-            AttributeType: S
-          - AttributeName: username
-            AttributeType: S
-          - AttributeName: email
-            AttributeType: S
-          - AttributeName: avatar
-            AttributeType: S
-          - AttributeName: address
-            AttributeType: M
-          - AttributeName: phone
-            AttributeType: S
-          - AttributeName: website
-            AttributeType: S
-          - AttributeName: company_name
-            AttributeType: S
-          - AttributeName: catch_phrase
-            AttributeType: S
-          - AttributeName: street
-            AttributeType: S
-          - AttributeName: suite
-            AttributeType: S
-          - AttributeName: city
-            AttributeType: S
-          - AttributeName: zipcode
-            AttributeType: S
         KeySchema:
           - AttributeName: id
             KeyType: HASH
-          - AttributeName: email
-            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
